@@ -3,21 +3,29 @@ import {Schema,model} from "mongoose";
 const nurseOrderSchema=new Schema({
     name:{
         type:String,
-        required:true,
+       
         trim:true,
     },
        
     phone:{
         type:String,
-        required:true,
+        unique:true,
+       
     },
     age:{
         type:Number,
         required:true,
+    
     },
     gender:{
         type:String,
+        required:true,
         
+    },
+    shift:{
+        type:String,
+        required:true,
+        enum:[12,24]
     },
     company:{
         type:String,
@@ -25,21 +33,26 @@ const nurseOrderSchema=new Schema({
     },
     address:{
         type:String,
-        required:true,
+       
     },
     costOfHour:{
         type:Number,
-        required:true
+       
     },
     costOfDay:{
         type:Number,
-        required:true
+        
     },
-    subCategory:{
-        type:Schema.ObjectId,
+   
+    specialization:{
+        type:String,
         required:true,
-        ref:"subCategory"
-       },
+    },
+    durationofstay:{
+        type:String,
+        required:true,
+    },
+    
        phoneOfUser:{
         type:String,
         required:true,
